@@ -32,6 +32,7 @@ public class JCSMPConfiguration {
     @Bean
     public JCSMPSession getJCSMPConnector(SolaceCloudProperties solaceCloudProperties) throws JCSMPException {
         JCSMPProperties props = new JCSMPProperties();
+        props.setProperty(JCSMPProperties.SSL_VALIDATE_CERTIFICATE, false);
         props.setProperty(JCSMPProperties.VPN_NAME, solaceCloudProperties.getVpn());
         props.setProperty(JCSMPProperties.USERNAME, solaceCloudProperties.getUsername());
         props.setProperty(JCSMPProperties.PASSWORD, solaceCloudProperties.getPassword());
